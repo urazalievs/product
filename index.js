@@ -69,16 +69,11 @@ function renderProducts(){
 
 document.querySelector('body').onclick = function(e) {
     if (e.target.className != 'deleteArr') return;  // Проверяем, что клик был по элементу с классом "close"
-    let item = e.target.closest('.product-item');  // Находим ближайший родительский элемент с классом "item"
+    let item = e.target.closest('.product-item');  // Находим ближайший родительский элемент с классом "item"gg
     
     if (item) {
-        const productId = item.getAttribute('data-id');
-
-        productArray = productArray.filter(product => product.id !== parseInt(productId));
-
         item.remove();
 
-        console.log(productArray);
     }
     
     
