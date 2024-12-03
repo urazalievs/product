@@ -67,7 +67,8 @@ function renderProducts(){
 }
 
 
-document.querySelector('body').onclick = function(e) {
+
+document.querySelector('body').addEventListener("click", function(e) {
     if (e.target.matches('.deleteArr')) {
         let item = e.target.closest('.product-item'); // Находим родительский div с классом product-item
         let index = item.getAttribute('data-id'); // Получаем индекс из data-id
@@ -80,13 +81,8 @@ document.querySelector('body').onclick = function(e) {
         console.log(productArray);
         
     }
-};
+});
 
-// document.querySelector("body").onclick = function(e) {
-//     else{
-//     }
-
-// }
 
 
 
