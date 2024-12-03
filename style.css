@@ -199,11 +199,19 @@ select:is(:hover, :focus) {
   /* justify-content: space-between; */
   gap: 10px;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  color: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  flex-wrap: wrap;
 }
 
 .product-item span{
   color:black;
-  width: 33%;
+  font-size: calc(13px + (24 - 13) * ((100vw - 320px) / (1920 - 320)));
+  width: 48%;
   padding: 10px;
   border-radius:9px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);

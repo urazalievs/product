@@ -51,34 +51,42 @@ function addProduct(){
 // Функция для рендеринга всех продуктов
 function renderProducts(){
     let htmlContent = "";
+    
     for (let i = 0; i < productArray.length; i++) {
         htmlContent += 
-            `<div class="product-item" data-id=" data-id:${productArray[i]}">
+            `<div class="product-item" data-id="${i}">
                 <span>Тип: ${productArray[i].productType}</span>
                 <span>Название: ${productArray[i].productName}</span>
                 <span>Количество: ${productArray[i].productCount}</span>
                 <button class="deleteArr">Удалить</button>
             </div>`;
-            // console.log(productArray.indexOf(i++));
     } 
     productList.innerHTML = htmlContent;
-    // console.log(productArray[0]);
+    console.log(productArray);
     
 }
 
 
 document.querySelector('body').onclick = function(e) {
-    if (e.target.className != 'deleteArr') return;  // Проверяем, что клик был по элементу с классом "close"
-    let item = e.target.closest('.product-item');  // Находим ближайший родительский элемент с классом "item"gg
-    
-    if (item) {
-        item.remove();
-
+    if (e.target.matches('.deleteArr')) {
+        let item = e.target.closest('.product-item'); // Находим родительский div с классом product-item
+        let index = item.getAttribute('data-id'); // Получаем индекс из data-id
+        productArray.splice(index, 1); // Удаляем элемент из массива по индексу
+        renderProducts(); // Рендерим обновленный список продуктов
     }
-    
-    
+    if (e.target.matches(".clear-list")){
+        productList.innerHTML ="" ;
+        productArray.splice(0)
+        console.log(productArray);
+        
+    }
 };
 
+// document.querySelector("body").onclick = function(e) {
+//     else{
+//     }
+
+// }
 
 
 
